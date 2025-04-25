@@ -1,0 +1,159 @@
+/* Общие стили */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Навигационная панель */
+.navbar {
+    margin-bottom: 30px;
+    background-color: #343a40 !important;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    color: #fff !important;
+}
+
+.btn-light {
+    transition: transform 0.3s;
+}
+
+.btn-light:hover {
+    transform: translateY(-2px);
+}
+
+/* Стили для карты */
+#map {
+    height: 600px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+/* Стили для попапов Leaflet */
+/* Стили для попапов */
+.custom-popup .leaflet-popup-content-wrapper {
+    max-width: 320px !important; /* Увеличиваем максимальную ширину */
+    padding: 15px !important;
+}
+
+.popup-image-wrapper {
+    max-width: 100%;
+    max-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.popup-image {
+    max-width: 100%;
+    max-height: 200px;
+    width: auto;
+    height: auto;
+    object-fit: contain; /* Сохраняем пропорции */
+    border-radius: 8px;
+}
+
+/* Увеличение зоны наведения */
+.custom-marker {
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+.custom-marker:hover {
+    transform: scale(1.2);
+}
+/* Увеличение зоны наведения для маркеров */
+.leaflet-marker-icon {
+    position: relative;
+}
+
+.leaflet-marker-icon::after {
+    content: '';
+    position: absolute;
+    width: 40px;    /* Увеличиваем область */
+    height: 40px;
+    background: transparent;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: auto; /* Разрешаем взаимодействие */
+}
+/* Невидимая область вокруг маркера для увеличения зоны клика */
+.leaflet-marker-icon::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.custom-popup .leaflet-popup-content {
+    margin: 0 !important;
+    font-size: 14px !important;
+}
+
+/* Страница объекта (landmark.html) */
+.container.mt-5 {
+    padding: 20px;
+}
+
+.img-fluid.rounded.shadow {
+    transition: transform 0.3s;
+    margin-bottom: 20px;
+}
+
+.img-fluid.rounded.shadow:hover {
+    transform: scale(1.03);
+}
+
+.list-group-item {
+    border: none;
+    padding: 15px 20px;
+}
+
+/* Страница заключения (conclusion.html) */
+.lead {
+    color: #6c757d;
+    font-size: 1.1rem;
+}
+
+.gallery-image {
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-bottom: 25px;
+}
+
+.gallery-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    #map {
+        height: 400px;
+    }
+    
+    .col-md-3 {
+        margin-bottom: 30px;
+    }
+    
+    .popup-image-wrapper {
+        max-width: 200px;
+    }
+}
+
+/* Анимации */
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 0.9; }
+    100% { opacity: 0.6; }
+}
+.leaflet-control-attribution {
+    display: none !important;
+}

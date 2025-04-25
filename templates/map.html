@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <div id="map" style="height: 600px; width: 100%;"></div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/map.js') }}"></script>
+<script>
+    const landmarksData = JSON.parse('{{ landmarks|tojson|safe }}');
+    initMap(landmarksData);
+</script>
+{% endblock %}

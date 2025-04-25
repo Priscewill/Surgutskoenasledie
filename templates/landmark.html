@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <!-- Кнопка "Назад" -->
+    <a href="#" onclick="window.history.back(); return false;" class="btn btn-secondary mb-4">
+        ← Назад
+    </a>
+
+    <h1 class="mb-4">{{ landmark.name }}</h1>
+    
+    <!-- Галерея -->
+    <div class="row mb-4">
+        {% for img in landmark.gallery %}
+        <div class="col-md-6 mb-3">
+            <img src="{{ url_for('static', filename=img) }}" class="img-fluid rounded shadow">
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Описание -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <h4 class="card-title">Историческая справка</h4>
+            <p class="card-text">{{ landmark.description }}</p>
+        </div>
+    </div>
+
+    <!-- Детали -->
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Характеристики</h4>
+            <ul class="list-group list-group-flush">
+                {% for key, value in landmark.details.items() %}
+                <li class="list-group-item">
+                    <strong>{{ key }}:</strong> {{ value }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

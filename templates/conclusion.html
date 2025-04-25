@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <!-- Текст по центру -->
+    <div class="row mb-5">
+        <div class="col-12 text-center">
+            <h3>Природные памятники Сургутского района</h3>
+        </div>
+    </div>
+
+    <!-- Боковые колонки с изображениями -->
+    <div class="row">
+        <!-- Левая колонка -->
+        <div class="col-md-3">
+            {% for landmark in landmarks[:3] %}
+            <a href="{{ url_for('landmark_details', id=landmark.id) }}" class="d-block mb-4">
+                <img 
+                    src="{{ url_for('static', filename=landmark.image) }}" 
+                    class="img-fluid rounded shadow"
+                    alt="{{ landmark.name }}"
+                >
+            </a>
+            {% endfor %}
+        </div>
+
+        <!-- Центральный текст (опционально) -->
+        <div class="col-md-6 text-center">
+            <p>Здесь может быть дополнительный текст о проекте...</p>
+        </div>
+
+        <!-- Правая колонка -->
+        <div class="col-md-3">
+            {% for landmark in landmarks[3:] %}
+            <a href="{{ url_for('landmark_details', id=landmark.id) }}" class="d-block mb-4">
+                <img 
+                    src="{{ url_for('static', filename=landmark.image) }}" 
+                    class="img-fluid rounded shadow"
+                    alt="{{ landmark.name }}"
+                >
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
